@@ -6,7 +6,7 @@ const Header = () => {
     <header>
       <div className={styles.Header}>
         <h1 className={styles.Header_Title}>Book Search</h1>
-        <p>Search your favourite titles</p>
+        <p>Search Your Favourite Titles</p>
       </div>
     </header>
   );
