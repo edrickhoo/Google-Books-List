@@ -20,6 +20,10 @@ export const fetchBooksApiSearch = async (
   const data = await response.json();
   console.log(data);
 
+  if (data?.error?.message.includes("Missing query.")) {
+    throw new Error(`Please enter a title in search input.`);
+  }
+
   if (data.error) {
     throw new Error(data.error.message);
   }
