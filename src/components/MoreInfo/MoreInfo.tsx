@@ -5,7 +5,7 @@ import { bookType } from "../../api/google-books-api";
 
 type Props = {
   moreInfoData: bookType;
-  toggleMoreInfo: Function;
+  toggleMoreInfo: () => void;
 };
 
 const MoreInfo = ({ moreInfoData, toggleMoreInfo }: Props) => {

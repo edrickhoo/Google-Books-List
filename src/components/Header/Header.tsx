@@ -5,7 +5,9 @@ const Header = () => {
   return (
     <header>
       <div className={styles.Header}>
-        <h1 className={styles.Header_Title}>Book Search</h1>
+        <h1 className={styles.Header_Title}>
+          <a href="">Book Search</a>
+        </h1>
         <p>Search Your Favourite Titles</p>
       </div>
     </header>

@@ -14,13 +14,13 @@ type Props = {
 const Books = ({ booksData, fetchWithSearchInput, error }: Props) => {
   const [searchInput, setSearchInput] = useState("");
   const [moreInfo, setMoreInfo] = useState(false);
-  const [moreInfoData, setMoreInfoData] = useState<object | null>(null);
+  const [moreInfoData, setMoreInfoData] = useState<bookType | null>(null);
 
   const toggleMoreInfo = () => {
     setMoreInfo(!moreInfo);
   };
 
-  const setAndToggleMoreInfo = (data: object) => {
+  const setAndToggleMoreInfo = (data: bookType) => {
     setMoreInfoData(data);
     toggleMoreInfo();
   };

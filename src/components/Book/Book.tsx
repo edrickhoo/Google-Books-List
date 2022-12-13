@@ -3,8 +3,8 @@ import { bookType } from "../../api/google-books-api";
 import styles from "./Book.module.scss";
 
 type Props = {
-  bookData: bookType[];
-  setAndToggleMoreInfo: Function;
+  bookData: bookType;
+  setAndToggleMoreInfo: (bookData: bookType) => void;
 };
 
 const Book = ({ bookData, setAndToggleMoreInfo }: Props) => {

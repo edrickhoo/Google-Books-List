@@ -1,9 +1,5 @@
 import { useState, useEffect } from "react";
-import {
-  fetchBooksApi,
-  fetchBooksApiSearch,
-  bookType,
-} from "./api/google-books-api";
+import { fetchBooksApiSearch, bookType } from "./api/google-books-api";
 import "./App.css";
 import Header from "./components/Header/Header";
 
@@ -13,8 +9,20 @@ function App() {
   const [booksData, setBooksData] = useState<bookType[] | null>(null);
   const [error, setError] = useState<string | null>(null);
 
+  const getRandomTitle = (): string => {
+    const titles = [
+      "Lord of the rings",
+      "Harry Potter",
+      "Javascript",
+      "React",
+      "twilight",
+    ];
+    const random = Math.floor(Math.random() * titles.length);
+    return titles[random];
+  };
+
   useEffect(() => {
-    fetchBooksApi()
+    fetchBooksApiSearch(getRandomTitle())
       .then((data) => {
         setError(null);
         setBooksData(data);
@@ -26,9 +34,9 @@ function App() {
     searchInput: string,
     e: React.SyntheticEvent
   ) => {
-    e.preventDefault();
-    setError(null);
     try {
+      e.preventDefault();
+      setError(null);
       setBooksData(null);
       const response = await fetchBooksApiSearch(searchInput);
 
