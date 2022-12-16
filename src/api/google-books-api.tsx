@@ -1,6 +1,6 @@
 const BASE_URL = "https://www.googleapis.com/books/v1/volumes?q=";
 
-export type bookType = {
+export interface BookType {
   img: string;
   author: [];
   description: string;
@@ -11,11 +11,11 @@ export type bookType = {
   ratingCount: string;
   shortDescription: string;
   pageCount: string;
-};
+}
 
 export const fetchBooksApiSearch = async (
   searchInput: string
-): Promise<bookType[]> => {
+): Promise<BookType[]> => {
   if (searchInput === "") {
     throw new Error(`Please enter a title in search input.`);
   }
@@ -43,11 +43,17 @@ export const fetchBooksApiSearch = async (
       shortDescription = descCopy?.split(" ").slice(0, 21).join(" ") + "...";
     }
 
+    const author = item.volumeInfo.authors;
+    const authorData =
+      Array.isArray(author) && author?.length > 1
+        ? `Authors: ${author.join(", ")}`
+        : `Author: ${author}`;
+
     return {
       img:
         item.volumeInfo?.imageLinks?.thumbnail ||
         "https://hazlitt.net/sites/default/files/default-book.png",
-      author: item.volumeInfo.authors || "No authors avaliable",
+      author: authorData || "No authors avaliable",
       description: item.volumeInfo.description || "No description avaliable",
       shortDescription: shortDescription || "No description avaliable",
       title: item.volumeInfo.title,

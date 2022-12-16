@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "./MoreInfo.module.scss";
 import closeIcon from "../../assets/close-icon.svg";
-import { bookType } from "../../api/google-books-api";
+import { BookType } from "../../api/google-books-api";
 
 type Props = {
-  moreInfoData: bookType;
+  moreInfoData: BookType;
   toggleMoreInfo: () => void;
 };
 
@@ -46,7 +46,6 @@ const MoreInfo = ({ moreInfoData, toggleMoreInfo }: Props) => {
             </div>
             <p className={styles.Book__Description}>{description}</p>
           </div>
-          <div className={styles.Book__MoreInfo_Container}></div>
         </div>
       ) : (
         <div>Loading...</div>

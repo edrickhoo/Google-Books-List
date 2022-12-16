@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Book from "../../components/Book/Book";
-import { bookType } from "../../api/google-books-api";
+import { BookType } from "../../api/google-books-api";
 import styles from "./Books.module.scss";
 import MoreInfo from "../../components/MoreInfo/MoreInfo";
 import searchIcon from "../../assets/search.svg";
 
 type Props = {
-  booksData: bookType[];
+  booksData: BookType[];
   fetchWithSearchInput: Function;
   error: string;
 };
@@ -14,13 +14,13 @@ type Props = {
 const Books = ({ booksData, fetchWithSearchInput, error }: Props) => {
   const [searchInput, setSearchInput] = useState("");
   const [moreInfo, setMoreInfo] = useState(false);
-  const [moreInfoData, setMoreInfoData] = useState<bookType | null>(null);
+  const [moreInfoData, setMoreInfoData] = useState<BookType>({});
 
   const toggleMoreInfo = () => {
     setMoreInfo(!moreInfo);
   };
 
-  const setAndToggleMoreInfo = (data: bookType) => {
+  const setAndToggleMoreInfo = (data: BookType) => {
     setMoreInfoData(data);
     toggleMoreInfo();
   };
@@ -53,7 +53,7 @@ const Books = ({ booksData, fetchWithSearchInput, error }: Props) => {
         </button>
       </form>
       <div className={styles.Books}>
-        {booksData && booksData.length > 0 ? (
+        {booksData.length > 0 ? (
           booksData.map((book: any, idx: number) => {
             return (
               <Book
@@ -70,9 +70,9 @@ const Books = ({ booksData, fetchWithSearchInput, error }: Props) => {
         )}
       </div>
 
-      {moreInfo ? (
+      {moreInfo && moreInfoData && (
         <MoreInfo toggleMoreInfo={toggleMoreInfo} moreInfoData={moreInfoData} />
-      ) : null}
+      )}
     </div>
   );
 };
