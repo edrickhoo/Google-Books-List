@@ -40,8 +40,10 @@ function App() {
       const response = await fetchBooksApiSearch(searchInput);
 
       setBooksData(response);
-    } catch (err: Error) {
-      setError(err.message);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      }
     }
   };
 

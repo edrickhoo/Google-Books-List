@@ -14,7 +14,7 @@ type Props = {
 const Books = ({ booksData, fetchWithSearchInput, error }: Props) => {
   const [searchInput, setSearchInput] = useState("");
   const [moreInfo, setMoreInfo] = useState(false);
-  const [moreInfoData, setMoreInfoData] = useState<BookType>({});
+  const [moreInfoData, setMoreInfoData] = useState<BookType | null>(null);
 
   const toggleMoreInfo = () => {
     setMoreInfo(!moreInfo);
