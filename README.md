@@ -71,11 +71,11 @@ Application Design (required):
 
 ## Reflection
 * What went well?
-  - I think the use of asynchronous programming went well as there was not many issues when fetching the data from the API.
+  - I think the use of asynchronous programming went well as there were not many issues when fetching the data from the API.
 * What are you proud of? 
   - I am proud that I decided to use typescript in this application to learn more about type safety, and the importance of it.
 * What was a challenge?
-  - A challenge that I can remember is when I was trying to type errors in try catch blocks. I spent awhile on researching the topic and found that in the catch the type would be unknown and in the body the of catch you would need to check if the error is instanceof Error. Example :
+  - A challenge that I can remember is when I was trying to type errors in try catch blocks. I spent a while researching the topic and found that in the catch the type would be unknown and in the body of the catch you would need to check if the error is instanceof Error. Example :
  ```
  catch (err: unknown) {
       if (err instanceof Error) {
@@ -104,5 +104,7 @@ Application Design (required):
 
 *  [Portfolio]( https://edric-khoo.vercel.app/)
 *  [Linkedin]( https://www.linkedin.com/in/edric-khoo-98881b173/)
+
+
 
 
