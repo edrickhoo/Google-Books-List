@@ -14,7 +14,7 @@
 
 ## Deployed Version
 
-* [Link]( https://e-commerce-mock-app.vercel.app/)
+* [Link]( https://google-books-list.vercel.app/)
 
 ## Setup
 
