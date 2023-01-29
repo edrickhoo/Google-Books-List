@@ -89,7 +89,7 @@ Application Design (required):
 
 ## Future Goals
 
-* Add a load more button to load more results on the page.
+* Add a load more button to load more results on the page. -- [x]
 * Add testing.
 * Style the page better, with a color palette.
 
