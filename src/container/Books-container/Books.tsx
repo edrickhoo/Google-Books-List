@@ -9,10 +9,17 @@ type Props = {
   booksData: BookType[];
   fetchWithSearchInput: Function;
   error: string;
+  searchInput: string;
+  setSearchInput: React.Dispatch<React.SetStateAction<string>>;
 };
 
-const Books = ({ booksData, fetchWithSearchInput, error }: Props) => {
-  const [searchInput, setSearchInput] = useState("");
+const Books = ({
+  booksData,
+  fetchWithSearchInput,
+  error,
+  setSearchInput,
+  searchInput,
+}: Props) => {
   const [moreInfo, setMoreInfo] = useState(false);
   const [moreInfoData, setMoreInfoData] = useState<BookType | null>(null);
 

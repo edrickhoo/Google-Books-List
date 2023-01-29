@@ -12,7 +12,7 @@ const Book = ({ bookData, setAndToggleMoreInfo }: Props) => {
 
   return (
     <div className={styles.Book}>
-      <h4>{title}</h4>
+      <h4 className={styles.Title}>{title}</h4>
       <h5>{author}</h5>
       <div className={styles.Book__Img_Desc_Container}>
         <div className={styles.Book__Img_Container}>
